@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
-
+//Cat's comment
 int main(void){
   DDRB = 0xFF; // Sets PB0 and PB1 to outputs
   DDRD = 0x00;
