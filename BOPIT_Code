@@ -1,0 +1,83 @@
+
+//DECLARE GLOBAL VARIABLES
+ int state;
+ int score;
+ int command;
+ double InitialValue;
+void setup() {
+  // configure pins (reset,button,flex,IR, 7 segments,speaker,LED)
+  pinMode(8,OUTPUT);
+  pinMode(13, OUTPUT);
+  state=0;
+  score=0;
+  command=0;
+  InitialValue=0;
+}
+
+// the loop function runs over and over again forever
+void loop() {
+
+  //check if reset button is pressed else check for states
+  if(state==0){
+    
+    Blink();
+  }
+  if(state==1){
+    Blink2();
+  }
+
+  
+}
+void Reset(){
+  //set 8 segment display to 0 
+  //set score to 0
+  //next state is choosecommand
+  //delay(half second)
+}
+void ChooseCommand(){
+  //pick a random number between 1-3 and set command
+  //set next state to prompt command
+  //delay(half second)
+}
+void PromptCommand(){
+  //look at command and play apporopriate sound
+  //next state is wait for input
+  //delay(half second)
+}
+void WaitForInput(){
+  //look at command and set initialValue to the value of the appropriate sensor
+  //look at score and start a timer and poll the value of the sensor make sure it changes
+  //if sensor value changes go to correct
+  
+}
+void Correct(){
+  //set green light on
+  //incerase score
+  //delay for .5 seconds 
+  //next state is win if score is 99 else choosecommand
+
+}
+void Loose(){
+  //set red light on 
+  //set the score to the 7 segment 
+  //next state is Loose();
+}
+void Win(){
+  //set green light on
+  //set score to 7 segment
+  //next state is win
+}
+void Blink(){
+ digitalWrite(8,HIGH);
+ delay(1000);
+ digitalWrite(8,LOW);
+ delay(1000);
+ state=1;
+}
+void Blink2(){
+ digitalWrite(8,HIGH);
+ delay(3000);
+ digitalWrite(8,LOW);
+ delay(3000);
+ state=0;
+}
